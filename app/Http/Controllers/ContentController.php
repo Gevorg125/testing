@@ -17,15 +17,6 @@ class ContentController extends Controller
         if ($request->isMethod('post')) {
             $content = Content::where($request->name, 'like', $request->value . '%')->get();
 
-//                $content = Content::where($request->name_name, 'like',  $request->value_name . '%')
-//                                    ->orWhere($request->name_surname, 'like',  $request->value_surname . '%')
-//                                    ->orWhere($request->name_email, 'like',  $request->value_email . '%')
-//                                    ->orWhere($request->name_password, 'like',  $request->value_password . '%')
-//                                    ->get();
-            $data = [
-                'title' => 'Content',//vorpes string e
-                'content' => $content
-            ];
             return response()->json($content);
 
         } else if (view()->exists('site.content')) {
@@ -52,16 +43,9 @@ class ContentController extends Controller
 
 
         if ($request->isMethod('post')) {
-
             \DB::table('users')->where('id', $request->id)->update([
-
-
                     $request->name => $request->value
-
-
-
             ]);
-
                 echo 200;
 
         }

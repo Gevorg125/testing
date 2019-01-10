@@ -45,8 +45,11 @@ function keyEnter(id, name, value, event){
                 name: name
             },
             success: function(result){
-                alert('changes were successfully saved');
-
+                if(result == 200){
+                    alert('changes were successfully saved');
+                }else{
+                    alert('some error has occurred');
+                }
             }});
     }
 
