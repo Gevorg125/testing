@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['uses' => 'ContentController@index', 'as' => 'content']);
+
+Route::post('/search', ['uses' => 'ContentController@index', 'as' => 'search']);
+
+Route::post('/update', ['uses' => 'ContentController@update', 'as' => 'update']);
